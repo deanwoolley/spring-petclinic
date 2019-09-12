@@ -64,13 +64,13 @@ pipeline {
       }
     }
     stage ('Deploy to Prod') {
-        agent any
-        when {
-                branch 'master'
-        }
-        steps{
-          input ('Proceed?')
-        }
+      agent any
+      when {
+              branch 'master'
+      }
+      steps{
+        input ('Proceed?')
+      }
     }
     stage('Smoke-Test Prod') {
       agent any
