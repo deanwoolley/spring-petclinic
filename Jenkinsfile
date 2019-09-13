@@ -79,7 +79,7 @@ pipeline {
       }
       steps {
         echo "Smoke Testing Production"
-        sh 'sleep 10'
+        sh 'sleep 2'
       }
     }
   }
