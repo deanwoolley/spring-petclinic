@@ -79,6 +79,7 @@ pipeline {
       }
       steps {
         echo "Smoke Testing Production"
+        echo "Smoke Testing Production Complete"
       }
     }
   }
