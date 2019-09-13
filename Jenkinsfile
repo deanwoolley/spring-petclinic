@@ -18,6 +18,7 @@ pipeline {
       agent any
       steps {
         script {
+          echo env.BRANCH_NAME
           if ( env.BRANCH_NAME == 'master' ) {
             pom = readMavenPom file: 'pom.xml'
             TAG = pom.version
