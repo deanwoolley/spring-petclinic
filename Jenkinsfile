@@ -24,7 +24,10 @@ pipeline {
     }
     stage('Deploy to Dev') {
       agent {
-        docker { args 'rm -f petclinic-tomcat-temp || true' }
+        docker { 
+          image 'petclinic-tomcat-temp'
+          args 'rm -f petclinic-tomcat-temp || true' \
+        }
       }
       steps {
         script {
