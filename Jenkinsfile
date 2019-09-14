@@ -23,13 +23,17 @@ pipeline {
       }
     }
     stage('Deploy to Dev') {
-      agent any
-      steps {
+      agent {
+        docker {
+          args 'rm -f petclinic-tomcat-temp || true'
+        }
+      /*steps {
         script{
           echo "running docker commands" 
-        }
-        /*sh "docker rm -f petclinic-tomcat-temp || true"
-        sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:${TAG}"*/
+          sh "docker rm -f petclinic-tomcat-temp || true"
+          sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:${TAG}"*/
+
+        }        
       }
     }
     stage('Smoke-Test Dev') {
