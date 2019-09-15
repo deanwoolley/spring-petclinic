@@ -19,6 +19,8 @@ pipeline {
       steps {
         script {
           echo env.BRANCH_NAME
+          echo env.IMAGE
+          echo TAG
         }
       }
     }
