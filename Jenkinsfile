@@ -26,11 +26,9 @@ pipeline {
     stage('Deploy to Dev') {
       agent any
       steps {
-        script {
-            pom = readMavenPom file: 'pom.xml'
-            TAG = pom.version        
+        script {   
           sh "docker rm -f petclinic-tomcat-temp || true"
-          sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:${TAG}"
+          sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:1.0.0-SNAPSHOT"
 
         }   
       }        
