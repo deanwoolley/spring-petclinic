@@ -20,7 +20,6 @@ pipeline {
         script {
           echo env.BRANCH_NAME
           echo env.IMAGE
-          echo TAG
         }
       }
     }
@@ -29,7 +28,7 @@ pipeline {
       steps {
         script {
           sh "docker rm -f petclinic-tomcat-temp || true"
-          sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:${TAG}"
+          sh "docker run -d -p 9966:8080 --name petclinic-tomcat-temp ${env.IMAGE}:latest"
 
         }   
       }        
